@@ -8,7 +8,6 @@ Created on 2020-02-14
 import serial
 import time
 import datetime
-#from azureSAStest import push2azure
 import glob
 import random
 
@@ -40,8 +39,3 @@ with open(fname,fmode) as outf:
             break
 
     outf.close()
-
-#time.sleep(60)
-#print('Pushing to Azure ...')
-#toCloud = push2azure()
-#toCloud.push2AzureAsBlobs()
