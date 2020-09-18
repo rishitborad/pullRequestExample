@@ -1,10 +1,3 @@
-
-"""
-Program to log OpenIMU335 data
-Created on 2020-02-14
-@author: xiankw
-"""
-
 import serial
 import time
 import datetime
@@ -36,8 +29,3 @@ with open(name,fmode) as outf:
             break
 
     outf.close()
-
-#time.sleep(60)
-#print('Pushing to Azure ...')
-#toCloud = push2azure()
-#toCloud.push2AzureAsBlobs()
