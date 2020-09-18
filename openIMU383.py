@@ -23,12 +23,12 @@ with open(file_name,fmode) as outfile:
     while True:
         try:
             line = ser.readline()
+			print("THis is sparta")
             outfile.write(bytes(line))
 
         except:
             break
 
     outfile.close()
-
 
 # all of this ne stuff should go be present in master branch
