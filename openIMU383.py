@@ -1,8 +1,9 @@
 import serial
-import time
+import random
+
 import datetime
 import glob
-import random
+import time
 
 ser = serial.Serial('/dev/cu.usbserial-FT8YAYV7', 921600, parity='N',bytesize=8,stopbits=1,timeout=None) # need to confirm port
 while True:
@@ -13,19 +14,21 @@ ser.flushInput()
 
 random_num = str(random.randint(100,10000))
 
-name = './OpenIMU_'
-name += random_num
-name += time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime()) + '.bin'
-mode = 'wb'
+file_name = './data/OpenIMU385-USB1_'
+file_name += random_num
+file_name += time.strftime("%Y_%m_%d_%H_%M_%S", time.localtime()) + '.bin'
+fmode = 'wb'
 
-with open(name,fmode) as outf:
+with open(file_name,fmode) as outfile:
     while True:
         try:
             line = ser.readline()
-            print(bytes(line))
-            outf.write(bytes(line))
+            outfile.write(bytes(line))
 
         except:
             break
 
-    outf.close()
+    outfile.close()
+
+
+# all of this ne stuff should go be present in master branch
